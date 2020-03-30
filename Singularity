@@ -22,6 +22,10 @@ From: continuumio/miniconda3
 
     chmod a+x /usr/local/bin/run-workflow-stage.sh
 
+    chmod a+x /usr/local/bin/merge.py
+
+    chmod a+x /usr/local/bin/collect.py
+
     export PATH=/opt/conda/bin:$PATH
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 
