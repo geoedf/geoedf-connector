@@ -14,7 +14,7 @@ From: continuumio/miniconda3
 
 %post
 
-    apt-get update && apt-get -y install python3-pip
+    apt-get update && apt-get -y install python3-pip wget curl
 
     cd /tmp/framework && pip3 install .
 
