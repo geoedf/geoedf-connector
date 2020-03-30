@@ -23,12 +23,12 @@ class GeoEDFExecutor():
     # assume exactly one set of bindings is provided as input
     def __init__(self,workflow_fname,workflow_stage,target_path,var_bindings=None,stage_bindings=None):
 
-        if var_bindings is not None:
+        if var_bindings != 'None':
             self.var_bindings = json.loads(var_bindings)
         else:
             self.var_bindings = None
 
-        if stage_bindings is not None:
+        if stage_bindings != 'None':
             self.stage_bindings = json.loads(stage_bindings)
         else:
             self.stage_bindings = None

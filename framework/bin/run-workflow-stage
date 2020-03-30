@@ -13,23 +13,14 @@ arg_count = len(sys.argv)
 # extract command line arguments
 
 # make sure the required arguments have been provided
-if arg_count < 5:
+if arg_count < 7:
     raise Exception("Incorrect number of arguments provided")
 
 workflow_fname = str(sys.argv[1])
-workflow_stage = str(sys.argv[2])
+workflow_stage = '$%s' % str(sys.argv[2])
 output_path = str(sys.argv[4])
-
-var_bindings_str = None
-stage_refs_str = None
-
-# if var bindings are provided
-if arg_count > 6:
-    var_bindings_str = str(sys.argv[6])
-
-# if stage references are provided
-if arg_count > 7:
-    stage_refs_str = str(sys.argv[7])
+var_bindings_str = str(sys.argv[6])
+stage_refs_str = str(sys.argv[7])
 
 # create instance of executor
 executor = GeoEDFExecutor(workflow_fname, workflow_stage, output_path, var_bindings_str, stage_refs_str)

@@ -10,8 +10,8 @@
 #stage_bindings: JSON string containing one set of bindings for stage references
 
 #simple validation on the minimum number of arguments required
-if [ "$#" -lt 5 ]; then
-   echo "At least 5 arguments need to be provided"
+if [ "$#" -lt 7 ]; then
+   echo "Seven arguments need to be provided"
    exit 1
 fi
 
