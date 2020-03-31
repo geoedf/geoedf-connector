@@ -7,7 +7,7 @@ out_dir = sys.argv[1]
 workflow_stage = sys.argv[2]
 filter_var = str(sys.argv[3])
 
-out_file = "%s/results_%d_%s.txt" % (out_dir,workflow_stage,filter_var)
+out_file = "%s/results_%s_%s.txt" % (out_dir,workflow_stage,filter_var)
 
 with open(out_file,'w') as output:
     for i in range(4,num_args):
