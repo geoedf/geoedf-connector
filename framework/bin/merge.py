@@ -3,7 +3,7 @@
 import os,sys
 
 num_args = len(sys.argv)
-out_dir = sys.argv[1]
+out_dir = os.getcwd() #sys.argv[1]
 workflow_stage = sys.argv[2]
 filter_var = str(sys.argv[3])
 
