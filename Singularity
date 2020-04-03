@@ -10,7 +10,7 @@ From: continuumio/miniconda3
 
 %environment
     export PYTHONPATH=/usr/local/lib/python3.7/dist-packages:$PYTHONPATH
-    export PATH=/opt/conda/bin:/opt/conda/envs/faoinput/bin:/opt/conda/envs/datetimefilter/bin:$PATH
+    export PATH=/opt/conda/bin:/opt/conda/envs/faoinput/bin:/opt/conda/envs/datetimefilter/bin:/opt/conda/envs/nasainput/bin:$PATH
 
 %post
 
@@ -36,3 +36,7 @@ From: continuumio/miniconda3
     conda create --name datetimefilter
     
     cd /tmp/datetimefilter && conda install -n datetimefilter pip && conda run -n datetimefilter /opt/conda/envs/datetimefilter/bin/pip install .
+
+    conda create --name nasainput
+
+    cd /tmp/nasainput && conda install -n nasainput pip && conda run -n nasainput /opt/conda/envs/nasainput/bin/pip install .
