@@ -6,11 +6,13 @@ From: continuumio/miniconda3
     framework/ /tmp
     faoinput/ /tmp
     datetimefilter/ /tmp
+    pathfilter/ /tmp
+    nasainput /tmp
     run-workflow-stage.sh /usr/local/bin/
 
 %environment
     export PYTHONPATH=/usr/local/lib/python3.7/dist-packages:$PYTHONPATH
-    export PATH=/opt/conda/bin:/opt/conda/envs/faoinput/bin:/opt/conda/envs/datetimefilter/bin:/opt/conda/envs/nasainput/bin:$PATH
+    export PATH=/opt/conda/bin:/opt/conda/envs/faoinput/bin:/opt/conda/envs/datetimefilter/bin:/opt/conda/envs/nasainput/bin:/opt/conda/envs/pathfilter/bin:$PATH
 
 %post
 
@@ -36,6 +38,10 @@ From: continuumio/miniconda3
     conda create --name datetimefilter
     
     cd /tmp/datetimefilter && conda install -n datetimefilter pip && conda run -n datetimefilter /opt/conda/envs/datetimefilter/bin/pip install .
+
+    conda create --name pathfilter
+    
+    cd /tmp/pathfilter && conda install -n pathfilter pip && conda run -n pathfilter /opt/conda/envs/pathfilter/bin/pip install .
 
     conda create --name nasainput
 
