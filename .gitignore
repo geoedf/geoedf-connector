@@ -130,3 +130,6 @@ dmypy.json
 
 # emacs temp files
 *~
+
+# Singularity images
+*.sif
