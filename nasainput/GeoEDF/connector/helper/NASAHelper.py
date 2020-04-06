@@ -6,7 +6,7 @@ import re
 import os
 import fnmatch
 from geoedfframework.utils.GeoEDFError import GeoEDFError
-from .HTMLParser import HTMLParser
+from .HTMLHelper import HTMLHelper
 
 """ Helper module for performing HTTP GET and POST operations.
     This module is primarily intended for use with the NASAInput connector.
@@ -80,7 +80,7 @@ def getFileList(url, auth):
                 res.raise_for_status()
 
                 # parse the returned HTML to get a possible file listing
-                parser = GeoEDFHTMLParser()
+                parser = HTMLHelper()
                 parser.feed(res.text)
                 files = parser.pathList
 
