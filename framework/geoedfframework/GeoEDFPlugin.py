@@ -43,14 +43,14 @@ class GeoEDFPlugin:
     # find all variables mentioned in value
     def find_vars(self,value):
         if value is not None and isinstance(value,str):
-            return re.findall('\%\{(.+?)\}',value)
+            return re.findall('\%\{(.+)\}',value)
         else:
             return []
 
     # find all prior stages referenced in value
     def find_stage_refs(self,value):
         if value is not None and isinstance(value,str):
-            return re.findall('\$([0-9]+?)',value)
+            return re.findall('\$([0-9]+)',value)
         else:
             return []
 
@@ -133,6 +133,19 @@ class GeoEDFPlugin:
                             num_dir_modifiers -= 1
                         setattr(self,attr_key,temp_val)
 
+    # set values for args left blank (sensitive args)
+    def bind_sensitive_args(self,sensitive_arg_bindings_dict):
+        for arg in sensitive_arg_bindings_dict.keys():
+            val = sensitive_arg_bindings_dict[arg]
+            setattr(self,arg,val)
+                            
+    # updates arg values with these overrides
+    def set_arg_overrides(self,arg_overrides_dict):
+        # loop through args needing overriding
+        for arg in arg_overrides_dict.keys():
+            override_val = arg_overrides_dict[arg]
+            setattr(self,arg,override_val)
+
     # sets the target path for this plugin's outputs
     def set_output_path(self,path):
         self.target_path = path
@@ -152,4 +165,5 @@ class GeoEDFPlugin:
         while(value.startswith('dir(')):
             count += 1
             value = value[4:]
+        return count
         
